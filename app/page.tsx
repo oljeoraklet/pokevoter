@@ -1,6 +1,4 @@
-import Button from "./Button";
 import PokemonGroup from "./PokemonGroup";
-import getTwoPokemon from "./utils/getTwoPokemon";
 
 export default async function Home() {
 	return (
