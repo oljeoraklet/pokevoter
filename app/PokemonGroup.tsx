@@ -1,6 +1,6 @@
 "use client";
 
-import React, { use, useState } from "react";
+import React, { useState } from "react";
 import useSWR from "swr";
 
 export type Pokemon = {
@@ -8,8 +8,9 @@ export type Pokemon = {
 	img: string;
 	id: number;
 };
+const url = process.env.VERCEL_URL || "http://localhost:3000";
 const fetcher = (path: string) =>
-	fetch(`http://localhost:3000${path}`).then((res) => res.json());
+	fetch(`${url}${path}`).then((res) => res.json());
 
 // let firstIndex = getRandomIndex(0);
 // let secondIndex = getRandomIndex(firstIndex);
@@ -27,7 +28,7 @@ export default function PokemonGroup() {
 
 	function handleSettingPokemon(pokemon: Pokemon) {
 		fetch(
-			`http://localhost:3000/api/voteForPokemon/?pokeId=${pokemon.id}&pokeName=${pokemon.name}&pokeUrl=${pokemon.img}`
+			`${url}/api/voteForPokemon/?pokeId=${pokemon.id}&pokeName=${pokemon.name}&pokeUrl=${pokemon.img}`
 		);
 
 		setFirstIndex(getRandomIndex(secondIndex));

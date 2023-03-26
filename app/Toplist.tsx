@@ -10,8 +10,9 @@ export type PrismaPokemon = {
 	imgUrl: string;
 	votes: number;
 };
+const url = process.env.VERCEL_URL || "http://localhost:3000";
 const fetcher = (path: string) =>
-	fetch(`http://localhost:3000${path}`).then((res) => res.json());
+	fetch(`${url}${path}`).then((res) => res.json());
 
 export default function Toplist() {
 	const { data, isLoading, error } = useSWR("/api/getTopPokemon/", fetcher);
