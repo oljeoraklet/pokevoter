@@ -9,8 +9,7 @@ export type Pokemon = {
 	id: number;
 };
 const url = process.env.VERCEL_URL || "http://localhost:3000";
-const fetcher = (path: string) =>
-	fetch(`${url}${path}`).then((res) => res.json());
+const fetcher = (path: string) => fetch(`${path}`).then((res) => res.json());
 
 // let firstIndex = getRandomIndex(0);
 // let secondIndex = getRandomIndex(firstIndex);
@@ -28,7 +27,7 @@ export default function PokemonGroup() {
 
 	function handleSettingPokemon(pokemon: Pokemon) {
 		fetch(
-			`${url}/api/voteForPokemon/?pokeId=${pokemon.id}&pokeName=${pokemon.name}&pokeUrl=${pokemon.img}`
+			`/api/voteForPokemon/?pokeId=${pokemon.id}&pokeName=${pokemon.name}&pokeUrl=${pokemon.img}`
 		);
 
 		setFirstIndex(getRandomIndex(secondIndex));
