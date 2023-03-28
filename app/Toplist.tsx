@@ -10,7 +10,7 @@ export type PrismaPokemon = {
 	imgUrl: string;
 	votes: number;
 };
-const url = process.env.VERCEL_URL || "http://localhost:3000";
+// const url = process.env.VERCEL_URL || "http://localhost:3000";
 const fetcher = (path: string) => fetch(`${path}`).then((res) => res.json());
 
 export default function Toplist() {

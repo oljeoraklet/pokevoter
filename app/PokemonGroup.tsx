@@ -8,7 +8,7 @@ export type Pokemon = {
 	img: string;
 	id: number;
 };
-const url = process.env.VERCEL_URL || "http://localhost:3000";
+// const url = process.env.VERCEL_URL || "http://localhost:3000";
 const fetcher = (path: string) => fetch(`${path}`).then((res) => res.json());
 
 // let firstIndex = getRandomIndex(0);
