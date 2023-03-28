@@ -2,6 +2,7 @@
 
 import React from "react";
 import useSWR from "swr";
+import Spinner from "./Spinner";
 
 export type PrismaPokemon = {
 	id: number;
@@ -19,7 +20,7 @@ export default function Toplist() {
 	return (
 		<>
 			{isLoading ? (
-				<div>Loading...</div>
+				<Spinner />
 			) : (
 				<ol className='flex flex-col items-center justify-start gap-8'>
 					{data.map((pokemon: PrismaPokemon, idx: number) => (

@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import useSWR from "swr";
+import Spinner from "./Spinner";
 
 export type Pokemon = {
 	name: string;
@@ -42,7 +43,7 @@ export default function PokemonGroup() {
 		<div className='w-96 h-96 flex justify-around items-center gap-20'>
 			{firstPokemon.isLoading ? (
 				<div className='text-2xl h-72 flex-1 flex items-center justify-center aspect-square'>
-					Loading...
+					<Spinner />
 				</div>
 			) : (
 				<div
@@ -54,7 +55,7 @@ export default function PokemonGroup() {
 			)}
 			{secondPokemon.isLoading ? (
 				<div className='text-2xl h-72 flex-1 flex items-center justify-center aspect-square'>
-					Loading...
+					<Spinner />
 				</div>
 			) : (
 				<div
